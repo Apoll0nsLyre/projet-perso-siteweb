@@ -1,7 +1,12 @@
-const menu = document.querySelector('.navbar');
-const contact = document.querySelector('.contact');
+const nav = document.querySelector('.nav');
 
-contact.addEventListener('click', () => {
-    menu.classList.toggle('navbar');
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
-    
+
